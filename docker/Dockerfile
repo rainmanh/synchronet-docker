@@ -1,5 +1,5 @@
 ################################################################################
-# NAME bbs-io/synchronet
+# NAME rainmanh/synchronet
 #
 # BUILD ARGS
 #   docker build --build-arg NAME=VALUE ...
@@ -16,7 +16,7 @@
 FROM debian:bullseye-slim AS base
 
 # Label for ghcr.io
-LABEL org.opencontainers.image.source=https://github.com/bbs-io/synchronet-docker
+LABEL org.opencontainers.image.source=https://github.com/rainmanh/synchronet-docker
 
 # RUN echo "Building on $(uname -m)"
 
@@ -54,7 +54,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Setup Scripts and BuildScripts directories and Download the latest Deno
-COPY buildscripts/deno-download.sh /tmp/deno-download.sh
+COPY docker/buildscripts/deno-download.sh /tmp/deno-download.sh
 RUN chmod +x /tmp/deno-download.sh \
     && /tmp/deno-download.sh \
     && rm -rf /tmp/*
@@ -104,8 +104,8 @@ RUN cd ./src/sbbs3 \
 
 
 # Run post-build script
-COPY buildscripts /sbbs/buildscripts
-COPY scripts /sbbs/scripts
+COPY docker/buildscripts /sbbs/buildscripts
+COPY docker/scripts /sbbs/scripts
 RUN chmod +x /sbbs/buildscripts/* \
     && chmod +x /sbbs/scripts/* \
     && /sbbs/buildscripts/post-build.sh \

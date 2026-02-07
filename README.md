@@ -4,11 +4,11 @@
 supporting classic terminal interfaces as well as modern web interfaces and
 other services.
 
-The [repository source](https://github.com/bbs-io/synchronet-docker/) is meant
+The [repository source](https://github.com/rainmanh/synchronet-docker/) is meant
 to build/push to
-[bbsio/synchronet on Docker Hub](https://hub.docker.com/repository/docker/bbsio/synchronet).
+[rainmanh/synchronet on Docker Hub](https://hub.docker.com/repository/docker/rainmanh/synchronet-bbs).
 For the `@bbs/synchronet` utility,
-[click here](https://github.com/bbs-io/synchronet-docker-util)
+[click here](https://github.com/rainmanh/synchronet-docker-util)
 
 ### Tags
 
@@ -19,7 +19,7 @@ For the `@bbs/synchronet` utility,
 
 ## UPDATES
 
-**Stick to `bbsio/synchronet:3.19c` if you are currently running a version prior
+**Stick to `rainmanh/synchronet:latest` if you are currently running a version prior
 to `3.20` you should until this project is updated to work through issues
 regarding the `3.20` migration scripts. They don't seem to like `/sbbs/ctrl` as
 a symbolic link inside the container.**
@@ -42,7 +42,7 @@ For your first run, you may want to run the Synchronet Configuration Program
 
     mkdir -p ~/sbbs
     cd ~/sbbs
-    docker run --rm -it -v "$PWD:/sbbs-data" bbsio/synchronet:latest scfg
+    docker run --rm -it -v "$PWD:/sbbs-data" rainmanh/synchronet:latest scfg
 
 This will create your sbbs storage directory inside your profile, and run the
 synchronet configuration program with that directory connected. This container
@@ -55,7 +55,7 @@ The easiest way to get running is with docker-compose.
 
     mkdir -p ~/sbbs
     cd ~/sbbs
-    wget -O docker-compose.yml https://raw.githubusercontent.com/bbs-io/synchronet-docker/master/docker-compose.yml
+    wget -O docker-compose.yml https://raw.githubusercontent.com/rainmanh/synchronet-docker/master/docker-compose.yml
     docker-compose up -d
     sudo chmod -R a+rwX ./*
 
@@ -157,13 +157,13 @@ Update: 2025-07-30 - restart automated builds
 
 docker buildx build --progress plain \
   --build-arg "GH_TOKEN=$GH_TOKEN" \
-  -t bbsio/synchronet:nightly-20220903 \
-  -t bbsio/synchronet:nightly-20220905 \
-  -t bbsio/synchronet:nightly-20220907 \
-  -t bbsio/synchronet:nightly \
-  -t bbsio/synchronet:3.19 \
-  -t bbsio/synchronet:3 \
-  -t bbsio/synchronet:latest \
+  -t rainmanh/synchronet:nightly-20220903 \
+  -t rainmanh/synchronet:nightly-20220905 \
+  -t rainmanh/synchronet:nightly-20220907 \
+  -t rainmanh/synchronet:nightly \
+  -t rainmanh/synchronet:3.19 \
+  -t rainmanh/synchronet:3 \
+  -t rainmanh/synchronet:latest \
   --push \
   --platform linux/amd64 \
   ./docker
