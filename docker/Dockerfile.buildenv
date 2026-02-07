@@ -1,4 +1,4 @@
-# docker build -t bbs-io/synchronet:buildenv -f docker/Dockerfile.buildenv ./docker
+# docker build -t rainmanh/synchronet:buildenv -f docker/Dockerfile.buildenv ./docker
 
 # Using bullseye-slim as baseline, to be able to use node based scripts.
 FROM debian:bullseye-slim AS build
