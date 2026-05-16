@@ -6,11 +6,11 @@ services:
     # -- LOCAL BUILD ----------------------------
     # build:
     #  context: ./docker
-    # image: rainmanh/synchronet-bbs:local
+    # image: ghcr.io/rainmanh/synchronet-bbs:local
     # -------------------------------------------
 
     # -- LATEST RELEASE -------------------------
-    image: rainmanh/synchronet-bbs:latest
+    image: ghcr.io/rainmanh/synchronet-bbs:latest
     # -------------------------------------------
 
     # -- NIGHTLY --------------------------------

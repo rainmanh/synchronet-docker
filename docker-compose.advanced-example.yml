@@ -8,7 +8,7 @@ version: "3.8"
 services:
   sbbs:
     container_name: sbbs
-    image: bbsio/synchronet:3.19c
+    image: ghcr.io/rainmanh/synchronet-bbs:latest
     deploy:
       restart_policy:
         condition: any
